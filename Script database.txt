@@ -1,0 +1,55 @@
+CREATE TABLE Users (
+UserID INT PRIMARY KEY,
+UserName varchar(40),
+UserPassword varchar(30),
+User_email varchar(20),
+LastLogin_date DATETIME
+);
+CREATE TABLE Admin (
+AdminId INT PRIMARY KEY,
+AdminName varchar(40),
+AdminPassowrd varchar(40),
+LastLogin_date DATETIME
+);
+CREATE TABLE Accounts (
+AccountID INT PRIMARY KEY,
+UserID INT,
+AccountType VARCHAR(50),
+FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+CREATE TABLE CV (
+CvID INT PRIMARY KEY,
+Experience INT,
+Skills VARCHAR(200)
+);
+
+CREATE TABLE PERSON (
+PersonID INT PRIMARY KEY,
+NameAndLastname VARCHAR(70),
+State VARCHAR(60),
+Birth INT,
+Skills VARCHAR(40)
+);
+
+CREATE TABLE JOB (
+JobId INT PRIMARY KEY,
+Title VARCHAR(200),
+JobDescription VARCHAR(700),
+Requirments VARCHAR(700)
+);
+
+CREATE Table Empployee(
+EmployeeID INT PRIMARY KEY,
+EmployeeName VARCHAR(80),
+EmployeePassword VARCHAR(150),
+Email VARCHAR(30),
+LastLoginDate DATE
+);
+
+CREATE Table Partner(
+PartnerID INT PRIMARY KEY,
+PartnerName VARCHAR(80),
+PartnerPassword VARCHAR(150),
+Email VARCHAR(30),
+LastLoginDate DATE
+);

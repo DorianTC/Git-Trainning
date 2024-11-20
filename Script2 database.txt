@@ -1,0 +1,66 @@
+CREATE TABLE User (
+UserID INT PRIMARY KEY,
+UserName varchar(40),
+UserPassword varchar(30),
+User_email varchar(20),
+LastLogin_date DATETIME
+);
+CREATE TABLE CEO (
+CeoId INT PRIMARY KEY,
+CeoName varchar(40),
+UserID INT,
+CeoPassowrd varchar(40),
+LastLogin_date DATETIME,
+Foreign Key (UserID) REFERENCES User(UserID)
+);
+CREATE TABLE Partner (
+PartnerID INT PRIMARY KEY,
+UserID INT,
+AccountType VARCHAR(50),
+FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+CREATE TABLE CV (
+CvID INT PRIMARY KEY,
+Experience INT,
+Skills VARCHAR(200)
+);
+
+CREATE TABLE JOB (
+JobId INT PRIMARY KEY,
+Title VARCHAR(200),
+JobDescription VARCHAR(700),
+Requirments VARCHAR(700)
+);
+
+CREATE TABLE PERSON (
+PersonID INT PRIMARY KEY,
+NameAndLastname VARCHAR(70),
+State VARCHAR(60),
+Birth INT,
+Skills VARCHAR(40),
+Job INT,
+CV INT,
+FOREIGN KEY (CV) REFERENCES CV(CVId),
+FOREIGN KEY (Job) REFERENCES JOB(JobId)
+);
+
+
+
+
+CREATE Table Empployee(
+EmployeeID INT PRIMARY KEY,
+EmployeeName VARCHAR(80),
+EmployeePassword VARCHAR(150),
+Email VARCHAR(30),
+UserID INT,
+LastLoginDate DATE,
+FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE Table Company(
+CompanyID INT PRIMARY KEY,
+Job int,
+Adress VARCHAR(30),
+Name VARCHAR(30),
+FOREIGN KEY (Job) REFERENCES JOB(JobId)
+);
